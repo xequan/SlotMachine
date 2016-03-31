@@ -2,7 +2,7 @@ package main.math;
 
 /**
  * Created by DM53848 on 3/31/2016.
- * Coded by Joey And Melissa(Demir help just a tiny bit, mostly just distracted us)
+ * Coded by Joey And Melissa (Demir help just a tiny bit, mostly just distracted us)
  * 
  */
 
