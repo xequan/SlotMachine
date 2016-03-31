@@ -1,22 +1,23 @@
 package main.ui;
 
-import java.util.Scanner;
-
 /**
  * Created by DM53848 on 3/15/2016.
  */
 public class MainApp {
-    public static Console console = new Console();
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        Displayable display = IOFactory.getDisplayable();
+        Validatable validate = IOFactory.getValidatable();
         String continueString = null;
 
+        display.display("Welcome to the slot machine\n\n");
+
+
+
         do {
-            System.out.println("Continue? (y/n): ");
-            continueString = console.getChoiceString("Continue? (y/n):", "y", "n");
+            continueString = validate.getChoiceString("continue\n", "y", "n");
         } while (continueString.equalsIgnoreCase("y"));
 
-        console.close();
-        System.out.println("bye");
+
     }
 }

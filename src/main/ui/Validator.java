@@ -6,7 +6,7 @@ import java.util.Scanner;
  *  @author Team A on 3/25/2016.
  *  Takes users input and validates the input and returns the input
  */
-public class Console implements ConsoleIO {
+public class Validator implements Validatable {
     Scanner inputScanner = new Scanner(System.in);
 
     @Override
@@ -15,11 +15,11 @@ public class Console implements ConsoleIO {
 
         while (true) {
             try {
-                System.out.println(prompt);
+                IOFactory.getDisplayable().display(prompt + "\n");
                 returnInt = Integer.parseInt(inputScanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Error! Invalid integer. Try again");
+                IOFactory.getDisplayable().display("Error! Invalid integer. Try again\n");
             }
         }
 
@@ -34,9 +34,9 @@ public class Console implements ConsoleIO {
             returnInt = getInt(prompt);
 
             if (returnInt < min) {
-                System.out.println("Error! Number must be greater than " + min);
+                IOFactory.getDisplayable().display("Error! Number must be greater than " + min + "\n");
             } else if (returnInt > max) {
-                System.out.println("Error! Number must be less than " + max);
+                IOFactory.getDisplayable().display("Error! Number must be less than " + max + "\n");
             } else {
                 break;
             }
@@ -51,11 +51,11 @@ public class Console implements ConsoleIO {
 
         while (true) {
             try {
-                System.out.println(prompt);
+                IOFactory.getDisplayable().display(prompt + "\n");
                 returnDouble = Double.parseDouble(inputScanner.nextLine());
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Error! Invalid double. Try again");
+                IOFactory.getDisplayable().display("Error! Invalid double. Try again\n");
             }
         }
         return returnDouble;
@@ -69,9 +69,9 @@ public class Console implements ConsoleIO {
             returnDouble = getDouble(prompt);
 
             if (returnDouble < min) {
-                System.out.println("Error! Number must be greater than " + min);
+                IOFactory.getDisplayable().display("Error! Number must be greater than " + min + "\n");
             } else if (returnDouble > max) {
-                System.out.println("Error! Number must be less than " + max);
+                IOFactory.getDisplayable().display("Error! Number must be less than " + max + "\n");
             } else {
                 break;
             }
@@ -83,11 +83,11 @@ public class Console implements ConsoleIO {
     public String getRequiredString(String prompt) {
         String inputString;
         while (true) {
-            System.out.println(prompt);
+            IOFactory.getDisplayable().display(prompt + "\n");
             inputString = inputScanner.nextLine();
 
             if (inputString.equals("")) {
-                System.out.println("Error!  This entry is required. Try again");
+                IOFactory.getDisplayable().display("Error!  This entry is required. Try again\n");
             } else {
                 break;
             }
@@ -104,7 +104,7 @@ public class Console implements ConsoleIO {
             if (choice.equalsIgnoreCase(s1) || choice.equalsIgnoreCase(s2)) {
                 break;
             } else {
-                System.out.println("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.");
+                IOFactory.getDisplayable().display("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.\n");
             }
         }
         return choice;
@@ -127,25 +127,10 @@ public class Console implements ConsoleIO {
                 errorMessage += (array[counter] + " ");
             }
             if (flag == true) {
-                System.out.println(errorMessage.toString());
+                IOFactory.getDisplayable().display(errorMessage.toString() + "\n");
             }
         }
         return choice;
-    }
-
-    @Override
-    public void print(String s) {
-        System.out.print(s);
-    }
-
-    @Override
-    public void println(String s) {
-        System.out.println(s);
-    }
-
-    @Override
-    public void println() {
-        System.out.println();
     }
 
     public void close() {

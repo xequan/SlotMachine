@@ -3,7 +3,7 @@ package main.ui;
 /**
  *  @author Team A on 3/25/2016.
  */
-public interface ConsoleInput {
+public interface Validatable {
     int getInt(String prompt);
 
     int getIntWithinRange(String prompt, int min, int max);
