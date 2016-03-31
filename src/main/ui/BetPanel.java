@@ -8,9 +8,9 @@ import main.business.Spinner;
  */
 public class BetPanel {
 	
-    private double betSelection;
+    private int betSelection;
 
-    public void getUserBet(){
+    public void setUserBet(){
         String[] betChoiceType = {"n", "d", "q"};
         String choice = "";
         choice = IOFactory.getValidatable().getChoiceArray("Enter your bet: nickle(n), dime(d) or quarter(q) \n", betChoiceType);
@@ -34,6 +34,10 @@ public class BetPanel {
         }
 
         return spins;
+    }
+
+    public int getBet(){
+        return this.betSelection;
     }
 
 }

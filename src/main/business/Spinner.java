@@ -11,7 +11,7 @@ public class Spinner {
 
     public Spinner() {
         this.randomNumberGenerator = new RNG();
-        this.randomNumberGenerator.setRange(1, 10);
+        this.randomNumberGenerator.setRange(1, 3);
 
     }
 

@@ -7,21 +7,22 @@ public class PayTable {
 	private double payout = 0;
 	private int spinners = 0;
 	private int numberOfValues = 0;
+	String[] results;
 	
-	public void setSpinnerCount(int spinners){
+	public PayTable(int spinners){
 		this.spinners = spinners;
 	}
 	public void setNumberOfValues(int numberOfValues){
 		this.numberOfValues = numberOfValues;
 	}
 	
-	public String[] getSpinnersResult(String results){
+	public void setSpinnersResult(String results){
 		String [] spinnerResult = new String[spinners];
 		spinnerResult = results.split(" ");
-		return spinnerResult;
+		this.results = spinnerResult;
 	}
 	
-	public void setPayout(String[] results, int bet){
+	public void setPayout(int bet){
 		boolean isEqual = true;
 		int counter = 0;
 		for (; counter < results.length; counter++){

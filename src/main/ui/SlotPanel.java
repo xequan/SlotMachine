@@ -9,6 +9,7 @@ import main.math.PayTable;
 public class SlotPanel {
     int menuOption = 0;
     Spinner[] spinners;
+    PayTable payTable = new PayTable(3);
 
     public SlotPanel(Spinner[] spinners) {
         this.spinners = spinners;
@@ -26,12 +27,18 @@ public class SlotPanel {
 
     public void runMenuOption() {
         BetPanel betPanel = new BetPanel();
-        PayTable pay = new PayTable();
+        String spin = "";
+
 
 
         if (this.menuOption == 1) {
-            betPanel.getUserBet();
-           IOFactory.getDisplayable().display(betPanel.Spin(spinners));
+            betPanel.setUserBet();
+            payTable.setNumberOfValues(3);
+            spin = betPanel.Spin(spinners);
+            IOFactory.getDisplayable().display(spin + "\n");
+            payTable.setSpinnersResult(spin);
+            payTable.setPayout(betPanel.getBet());
+            IOFactory.getDisplayable().display(payTable.getPayout() + "\n");
         } else if (this.menuOption == 2) {
             //ToDo
         } else {
