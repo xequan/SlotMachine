@@ -11,6 +11,9 @@ public class PayTable {
 	public void setSpinnerCount(int spinners){
 		this.spinners = spinners;
 	}
+	public void setNumberOfValues(int numberOfValues){
+		this.numberOfValues = numberOfValues;
+	}
 	
 	public String[] getSpinnersResult(String results){
 		String [] spinnerResult = new String[spinners];
