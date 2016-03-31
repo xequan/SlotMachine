@@ -8,7 +8,13 @@ public class Card {
 	private String name="";
 	private int accountNumber=0;
 	private double amount=0;
-	
+
+	public Card(String name, int accountNumber, double amount) {
+		this.name = name;
+		this.accountNumber = accountNumber;
+		this.amount = amount;
+	}
+
 	public String getName() {
 		return name;
 	}
