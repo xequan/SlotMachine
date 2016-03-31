@@ -8,13 +8,19 @@ import main.business.Card;
 
 public class CardReader {
 	public void insertCard(Card input){
-		input.getName();
-		input.getAccountNumber();
-		input.getAmount();
+		input.setName(IOFactory.getValidatable().getRequiredString("Please enter your name: "));
+		input.setAccountNumber(IOFactory.getValidatable().getInt("Please enter your Account Number: "));
+		input.setAmount(IOFactory.getValidatable().getDouble("Please enter the Amount on the card: "));
 	}
+	
 	public void removeCard(Card input){
 		input.setAccountNumber(0);
 		input.setAmount(0);
 		input.setName("");
+	}
+	
+
+	public double checkBalance(Card input){
+		return input.getAmount();
 	}
 }
