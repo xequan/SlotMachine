@@ -25,6 +25,7 @@ public class PayTable {
 		boolean isEqual = true;
 		int counter = 0;
 		for (; counter < results.length; counter++){
+			if (counter < results.length-1){
 		if (results[counter].equals(results[counter+1])){
 				isEqual = true;
 				continue;
@@ -33,7 +34,8 @@ public class PayTable {
 				isEqual = false;
 				break;
 			}
-				
+			}
+			else{
 		}
 		if (isEqual == true){
 			for(int resultCounter = 1; resultCounter < numberOfValues; resultCounter++){
@@ -47,7 +49,7 @@ public class PayTable {
 					continue;
 				}
 			}
-		}
+		}}
 		
 	}
 	public double getPayout(){
