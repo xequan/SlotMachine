@@ -21,7 +21,7 @@ public class PayTable {
 		return spinnerResult;
 	}
 	
-	public void setPayout(String[] results, double bet){
+	public void setPayout(String[] results, int bet){
 		boolean isEqual = true;
 		int counter = 0;
 		for (; counter < results.length; counter++){
@@ -38,17 +38,19 @@ public class PayTable {
 			else{
 		}
 		if (isEqual == true){
-			for(int resultCounter = 1; resultCounter < numberOfValues; resultCounter++){
-				double multiplier = 1.1;
+
+			int multiplier = 2;
+			for(int resultCounter = 1; resultCounter <= numberOfValues; resultCounter++){
 				if (Integer.parseInt(results[0]) == resultCounter){
-					payout = multiplier * bet;
+					this.payout = multiplier * bet;
 					break;
 				}
 				else {
-					multiplier += .1;
+					multiplier ++;
 					continue;
 				}
 			}
+			
 		}}
 		
 	}
