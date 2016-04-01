@@ -7,6 +7,8 @@ import main.ui.util.Validatable;
 /**
  * Created by DM53848 on 3/31/2016.
  * @author damirzanovic
+ * Class creates a card and sets the Name, Account Number, and Amount to a user entered value. 
+ * Class includes methods for removing the card, erasing the information and checking the balance.
  */
 
 public class CardReader {

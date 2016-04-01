@@ -6,6 +6,8 @@ import main.ui.util.IOFactory;
 /**
  * Created by DM53848 on 3/31/2016.
  * @author damirzanovic
+ * Allows a card object to be created that allows a name, account number and 
+ * an amount to be stored and gives access to add and subtract from the object. 
  */
 public class Card {
 	private String name="";
