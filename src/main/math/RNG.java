@@ -2,8 +2,9 @@ package main.math;
 
 /**
  * Created by DM53848 on 3/31/2016.
- * Coded by Joey And Melissa (Demir help just a tiny bit, mostly just distracted us)
+ * Coded by Joey And Melissa 
  * 
+ * This Class creates the random method for the spinner and contains the method that sets the range of the spinner.
  */
 
 
