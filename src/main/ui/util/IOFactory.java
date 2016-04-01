@@ -9,8 +9,8 @@ import main.ui.gui.GUIDisplay;
  */
 public class IOFactory {
     public static Displayable getDisplayable() {
-     //   Displayable display = new ConsoleOutput();
-        Displayable display = new GUIDisplay();
+        Displayable display = new ConsoleOutput();
+    //    Displayable display = new GUIDisplay();
         return display;
     }
 
