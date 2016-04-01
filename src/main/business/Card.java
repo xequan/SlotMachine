@@ -1,5 +1,7 @@
 package main.business;
 
+import java.text.NumberFormat;
+
 import main.ui.util.Displayable;
 import main.ui.util.IOFactory;
 
@@ -37,6 +39,11 @@ public class Card {
 	}
 	public double getAmount() {
 		return amount;
+	}
+	public String getFormattedAmount(){
+		String formatAmount=NumberFormat.getCurrencyInstance().format(amount);
+		return formatAmount;
+		
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
