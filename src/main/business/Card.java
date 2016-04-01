@@ -9,6 +9,9 @@ public class Card {
 	private int accountNumber=0;
 	private double amount=0;
 
+	public Card() {
+
+	}
 	public Card(String name, int accountNumber, double amount) {
 		this.name = name;
 		this.accountNumber = accountNumber;

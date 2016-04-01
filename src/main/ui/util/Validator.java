@@ -1,13 +1,12 @@
-package main.ui;
-
-import java.util.Scanner;
+package main.ui.util;
 
 /**
  *  @author Team A on 3/25/2016.
  *  Takes users input and validates the input and returns the input
  */
 public class Validator implements Validatable {
-    Scanner inputScanner = new Scanner(System.in);
+    Interactable input = IOFactory.getInteractible();
+    Displayable output = IOFactory.getDisplayable();
 
     @Override
     public int getInt(String prompt) {
@@ -15,11 +14,11 @@ public class Validator implements Validatable {
 
         while (true) {
             try {
-                IOFactory.getDisplayable().display(prompt + "\n");
-                returnInt = Integer.parseInt(inputScanner.nextLine());
+                output.display(prompt + "\n");
+                returnInt = Integer.parseInt(input.requestString());
                 break;
             } catch (NumberFormatException e) {
-                IOFactory.getDisplayable().display("Error! Invalid integer. Try again\n");
+                output.display("Error! Invalid integer. Try again\n");
             }
         }
 
@@ -34,9 +33,9 @@ public class Validator implements Validatable {
             returnInt = getInt(prompt);
 
             if (returnInt < min) {
-                IOFactory.getDisplayable().display("Error! Number must be greater than " + min + "\n");
+                output.display("Error! Number must be greater than " + min + "\n");
             } else if (returnInt > max) {
-                IOFactory.getDisplayable().display("Error! Number must be less than " + max + "\n");
+                output.display("Error! Number must be less than " + max + "\n");
             } else {
                 break;
             }
@@ -51,11 +50,11 @@ public class Validator implements Validatable {
 
         while (true) {
             try {
-                IOFactory.getDisplayable().display(prompt + "\n");
-                returnDouble = Double.parseDouble(inputScanner.nextLine());
+                output.display(prompt + "\n");
+                returnDouble = Double.parseDouble(input.requestString());
                 break;
             } catch (NumberFormatException e) {
-                IOFactory.getDisplayable().display("Error! Invalid double. Try again\n");
+                output.display("Error! Invalid double. Try again\n");
             }
         }
         return returnDouble;
@@ -69,9 +68,9 @@ public class Validator implements Validatable {
             returnDouble = getDouble(prompt);
 
             if (returnDouble < min) {
-                IOFactory.getDisplayable().display("Error! Number must be greater than " + min + "\n");
+                output.display("Error! Number must be greater than " + min + "\n");
             } else if (returnDouble > max) {
-                IOFactory.getDisplayable().display("Error! Number must be less than " + max + "\n");
+                output.display("Error! Number must be less than " + max + "\n");
             } else {
                 break;
             }
@@ -83,11 +82,11 @@ public class Validator implements Validatable {
     public String getRequiredString(String prompt) {
         String inputString;
         while (true) {
-            IOFactory.getDisplayable().display(prompt + "\n");
-            inputString = inputScanner.nextLine();
+            output.display(prompt + "\n");
+            inputString = input.requestString();
 
             if (inputString.equals("")) {
-                IOFactory.getDisplayable().display("Error!  This entry is required. Try again\n");
+                output.display("Error!  This entry is required. Try again\n");
             } else {
                 break;
             }
@@ -104,7 +103,7 @@ public class Validator implements Validatable {
             if (choice.equalsIgnoreCase(s1) || choice.equalsIgnoreCase(s2)) {
                 break;
             } else {
-                IOFactory.getDisplayable().display("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.\n");
+                output.display("Error!  Entry must be " + s1 + " or " + s2 + ". Try again.\n");
             }
         }
         return choice;
@@ -127,13 +126,10 @@ public class Validator implements Validatable {
                 errorMessage += (array[counter] + " ");
             }
             if (flag == true) {
-                IOFactory.getDisplayable().display(errorMessage.toString() + "\n");
+                output.display(errorMessage.toString() + "\n");
             }
         }
         return choice;
     }
 
-    public void close() {
-        inputScanner.close();
-    }
 }

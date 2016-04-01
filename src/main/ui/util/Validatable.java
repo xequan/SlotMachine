@@ -1,4 +1,4 @@
-package main.ui;
+package main.ui.util;
 
 /**
  *  @author Team A on 3/25/2016.

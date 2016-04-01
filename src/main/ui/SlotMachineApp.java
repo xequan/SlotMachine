@@ -2,6 +2,8 @@ package main.ui;
 
 import main.business.Card;
 import main.business.Spinner;
+import main.ui.util.Displayable;
+import main.ui.util.IOFactory;
 
 /**
  * Created by DM53848 on 3/15/2016.
@@ -9,20 +11,24 @@ import main.business.Spinner;
 public class SlotMachineApp {
 
     public static void main(String[] args) {
-        CardPanel cardPanel = new CardPanel();
+        CardReader cardReader = new CardReader();
         BetPanel betPanel = new BetPanel();
         Spinner[] spinners = new Spinner[3];
         SlotPanel slotPanel = new SlotPanel(spinners);
+        MainPanel mainMenu;
+
+        Card userCard = new Card();
+
+
         for (int i = 0; i < spinners.length; i ++){
             spinners[i] = new Spinner();
         }
-        Card userCard;
 
-        IOFactory.getDisplayable().display("Welcome to the Java Slot Machine!\n\n");
+        mainMenu = new MainPanel();
+        cardReader.insertCard(userCard);
 
-
-        cardPanel.displayCardSlot();
-        userCard = cardPanel.getUserCard();
+    //    cardPanel.displayCardSlot();
+    //    userCard = cardPanel.getUserCard();
 
 
         do {
