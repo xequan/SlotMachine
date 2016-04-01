@@ -7,7 +7,8 @@ import main.ui.util.Validatable;
 import java.util.Scanner;
 
 /**
- * Created by DM53848 on 3/31/2016.
+ * @author DM53848 on 3/31/2016.
+ * Gets console input from the user
  */
 public class ConsoleInput implements Interactable {
     @Override

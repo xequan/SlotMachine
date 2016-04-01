@@ -5,7 +5,8 @@ import main.ui.console.ConsoleOutput;
 import main.ui.gui.GUIDisplay;
 
 /**
- *  @author Team A on 3/25/2016.
+ *  @author Team A on 3/31/2016.
+ *  Returns Displayable, Validatable or Interactable
  */
 public class IOFactory {
     public static Displayable getDisplayable() {

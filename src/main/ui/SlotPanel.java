@@ -1,19 +1,27 @@
 package main.ui;
 
+import main.business.Card;
 import main.business.Spinner;
 import main.math.PayTable;
+import main.ui.util.Displayable;
 import main.ui.util.IOFactory;
+import main.ui.util.Validatable;
 
 /**
- * Created by DM53848 on 3/31/2016.
+ * @author DM53848 on 3/31/2016.
+ * Sub menu. Allows the user to place a bet, display account balance, or exit the program.
  */
 public class SlotPanel {
     int menuOption = 0;
     Spinner[] spinners;
     PayTable payTable = new PayTable(3);
+    Displayable output = IOFactory.getDisplayable();
+    Validatable inputOutput = IOFactory.getValidatable();
+    Card userCard;
 
-    public SlotPanel(Spinner[] spinners) {
+    public SlotPanel(Spinner[] spinners, Card userCard) {
         this.spinners = spinners;
+        this.userCard = userCard;
     }
 
     public void displaySlotPanel() {
@@ -23,25 +31,26 @@ public class SlotPanel {
                 "2.  Display Account Balance\n" +
                 "3.  Remove Card and Exit Slot Machine";
 
-        this.menuOption = Integer.parseInt(IOFactory.getValidatable().getChoiceArray(menu + menuChoices, choices));
+        this.menuOption = Integer.parseInt(inputOutput.getChoiceArray(menu + menuChoices, choices));
     }
 
     public void runMenuOption() {
-        BetPanel betPanel = new BetPanel();
+        BetPanel betPanel = new BetPanel(userCard);
         String spin = "";
-
 
 
         if (this.menuOption == 1) {
             betPanel.setUserBet();
-            payTable.setNumberOfValues(3);
-            spin = betPanel.Spin(spinners);
-            IOFactory.getDisplayable().display(spin + "\n");
-            payTable.setSpinnersResult(spin);
-            payTable.setPayout(betPanel.getBet());
-            IOFactory.getDisplayable().display(payTable.getPayout() + "\n");
+            if (betPanel.getBet() > 0) {
+                payTable.setNumberOfValues(3);
+                spin = betPanel.Spin(spinners);
+                output.display(spin + "\n");
+                payTable.setSpinnersResult(spin);
+                payTable.setPayout(betPanel.getBet());
+                output.display(payTable.getPayout() + "\n");
+            }
         } else if (this.menuOption == 2) {
-            //ToDo
+           output.display("Account Balance: " + userCard.getAmount() + "\n");
         } else {
            this.menuOption = 3;
         }

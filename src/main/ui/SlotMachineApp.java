@@ -6,37 +6,40 @@ import main.ui.util.Displayable;
 import main.ui.util.IOFactory;
 
 /**
- * Created by DM53848 on 3/15/2016.
+ * @author team a on 3/31/2016.
+ * Simulates a slot machine.  Lets a user input their name, accout number, and total $ in their account
+ * They can then place bets until their account balance is 0.
  */
 public class SlotMachineApp {
 
     public static void main(String[] args) {
         CardReader cardReader = new CardReader();
-        BetPanel betPanel = new BetPanel();
         Spinner[] spinners = new Spinner[3];
-        SlotPanel slotPanel = new SlotPanel(spinners);
+        SlotPanel slotPanel;
         MainPanel mainMenu;
-
+        Displayable output = IOFactory.getDisplayable();
         Card userCard = new Card();
-
 
         for (int i = 0; i < spinners.length; i ++){
             spinners[i] = new Spinner();
         }
 
         mainMenu = new MainPanel();
-        cardReader.insertCard(userCard);
-
-    //    cardPanel.displayCardSlot();
-    //    userCard = cardPanel.getUserCard();
 
 
-        do {
-            if (userCard != null){
+        if (mainMenu.getMenuOption() == 1) {
+            cardReader.insertCard(userCard);
+            slotPanel = new SlotPanel(spinners, userCard);
+
+            do {
+
                 slotPanel.displaySlotPanel();
                 slotPanel.runMenuOption();
-            } ;
-        } while (slotPanel.getMenuOption() != 3);
+
+            } while (slotPanel.getMenuOption() != 3);
+        } else {
+            output.display("Goodbye!");
+        }
 
 
     }

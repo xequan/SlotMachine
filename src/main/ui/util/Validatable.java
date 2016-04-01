@@ -1,7 +1,8 @@
 package main.ui.util;
 
 /**
- *  @author Team A on 3/25/2016.
+ *  @author Team A on 3/31/2016.
+ *  Interface to validate user input
  */
 public interface Validatable {
     int getInt(String prompt);

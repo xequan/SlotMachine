@@ -19,4 +19,8 @@ public class MainPanel {
 
         this.menuOption = inputOutput.getInt(menu);
     }
+
+    public int getMenuOption(){
+        return this.menuOption;
+    }
 }

@@ -1,6 +1,10 @@
 package main.math;
 
-/**
+/**This class needs to have the number of spinners and values on each spinner put into it. It 
+ * then takes that information and compares the values on each spinner once they are determined
+ * and ensures all values are equal to each other. If they are it then determines what value
+ * the spinners landed on and adjusts the payout from there and can return that amount. If
+ * the values are not all equal then it will return a 0 for the payout.
  * Created by DM53848 & JS54004 on 3/31/2016.
  */
 public class PayTable {
@@ -21,7 +25,11 @@ public class PayTable {
 		spinnerResult = results.split(" ");
 		this.results = spinnerResult;
 	}
-	
+	/*
+	 * This is where it is determined if the player wins. Needs the bet amount passed into the
+	 * method to determine the proper payout. Output will be in cents so will need to be converted
+	 * to dollars appropriately.
+	 */
 	public void setPayout(int bet){
 		boolean isEqual = true;
 		int counter = 0;

@@ -3,7 +3,8 @@ package main.ui.console;
 import main.ui.util.Displayable;
 
 /**
- * Created by DM53848 on 3/31/2016.
+ * @author DM53848 on 3/31/2016.
+ * Displays a string to the console
  */
 public class ConsoleOutput implements Displayable {
 
