@@ -37,10 +37,8 @@ public class SlotMachineApp {
                 slotPanel.runMenuOption();
 
             } while (slotPanel.getMenuOption() != 3);
-        } else {
-            output.display("Goodbye!");
         }
-
+        output.display("Goodbye!");
 
     }
 }

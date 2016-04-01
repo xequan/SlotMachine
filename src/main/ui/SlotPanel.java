@@ -49,11 +49,11 @@ public class SlotPanel {
                 payTable.setSpinnersResult(spin);
                 payTable.setPayout(betPanel.getBet());
                 payout = payTable.getPayout() / 100;
-                userCard.addAmount(payout / 100);
+                userCard.addAmount(payout);
                 if (payout > 0) {
                     output.display("Winner!!!   Amount: " + payout + "\n");
                 } else {
-                    output.display("Loser!!!\n");
+                    output.display("Better luck next time\n");
                 }
 
 

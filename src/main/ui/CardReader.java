@@ -16,7 +16,7 @@ public class CardReader {
 
 	public void insertCard(Card input){
 		input.setName(inputOutput.getRequiredString("Please enter your name: "));
-		input.setAccountNumber(inputOutput.getIntWithinRange("Please enter your Account Number: ", 1, 100));
+		input.setAccountNumber(inputOutput.getIntWithinRange("Please enter your Account Number: ", 1, 1000));
 		input.setAmount(inputOutput.getDoubleWithinRange("Please enter the Amount on the card: ", 1, 100));
 	}
 	
