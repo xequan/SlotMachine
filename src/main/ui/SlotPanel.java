@@ -53,7 +53,7 @@ public class SlotPanel {
                 if (payout > 0) {
                     output.display("Winner!!!   Amount: " + payout + "\n");
                 } else {
-                    output.display("Loser!!!\n");
+                    output.display("Better luck next time!\n");
                 }
 
 
