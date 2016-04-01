@@ -2,6 +2,8 @@ package test;
 
 import org.testng.annotations.Test;
 
+import main.math.RNG;
+
 import static org.testng.Assert.assertEquals;
 
 /**
@@ -14,6 +16,11 @@ public class TestThisProject {
     public void SampleTestMethod() {
         String testString = "This string will match";
         assertEquals("This string will match", testString);
+        
+        
+        
+   
+        
     }
 
 }
