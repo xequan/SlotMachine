@@ -16,6 +16,7 @@ public class Card {
 	private int accountNumber=0;
 	private double amount=0;
 	Displayable displayOutput= IOFactory.getDisplayable();
+	boolean flag = true;
 	public Card() {
 
 	}
@@ -50,13 +51,19 @@ public class Card {
 	}
 	public void subtractAmount(double amount){
 		if ((this.amount-amount)<0){
-			displayOutput.display("Insufficient Funds, please add more money to the card to continue playing");
+			displayOutput.display("Insufficient Funds, please add more money to the card to continue playing\n");
+			this.flag = false;
 		} else {
 			this.amount-=amount;
+			this.flag = true;
 		}
 	}
 	public void addAmount(double amount){
 		this.amount+=amount;
+	}
+
+	public boolean getFlag(){
+		return this.flag;
 	}
 	
 	

@@ -30,7 +30,8 @@ public class PayTable {
 	 * method to determine the proper payout. Output will be in cents so will need to be converted
 	 * to dollars appropriately.
 	 */
-	public void setPayout(int bet){
+	public void setPayout(double bet){
+		this.payout = 0;
 		boolean isEqual = true;
 		int counter = 0;
 		for (; counter < results.length; counter++){

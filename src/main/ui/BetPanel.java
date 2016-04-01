@@ -9,7 +9,7 @@ import main.ui.util.IOFactory;
  */
 public class BetPanel {
 	
-    private int betSelection;
+    private double betSelection;
     private Card userCard;
 
     public BetPanel(Card userCard) {
@@ -19,14 +19,25 @@ public class BetPanel {
     public void setUserBet(){
         String[] betChoiceType = {"n", "d", "q", "e"};
         String choice = "";
+        boolean flag = true;
         choice = IOFactory.getValidatable().getChoiceArray("Enter your bet: nickle(n), dime(d), quarter(q) or exit(e) \n", betChoiceType);
         if (choice.equalsIgnoreCase(("n"))){
             this.betSelection = 5;
+            userCard.subtractAmount(this.betSelection / 100);
+            flag = userCard.getFlag();
         } else if (choice.equalsIgnoreCase("d")) {
             this.betSelection = 10;
+            userCard.subtractAmount(this.betSelection / 100);
+            flag = userCard.getFlag();
         } else if (choice.equalsIgnoreCase("q")) {
             this.betSelection = 25;
+            userCard.subtractAmount(this.betSelection / 100);
+            flag = userCard.getFlag();
         } else {
+            this.betSelection = 0;
+        }
+
+        if (flag == false){
             this.betSelection = 0;
         }
     }
@@ -44,7 +55,7 @@ public class BetPanel {
         return spins;
     }
 
-    public int getBet(){
+    public double getBet(){
         return this.betSelection;
     }
 

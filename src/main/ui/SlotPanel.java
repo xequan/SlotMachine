@@ -37,6 +37,7 @@ public class SlotPanel {
     public void runMenuOption() {
         BetPanel betPanel = new BetPanel(userCard);
         String spin = "";
+        double payout = 0;
 
 
         if (this.menuOption == 1) {
@@ -44,13 +45,21 @@ public class SlotPanel {
             if (betPanel.getBet() > 0) {
                 payTable.setNumberOfValues(3);
                 spin = betPanel.Spin(spinners);
-                output.display(spin + "\n");
+                output.display("Spin: " + spin + "\n");
                 payTable.setSpinnersResult(spin);
                 payTable.setPayout(betPanel.getBet());
-                output.display(payTable.getPayout() + "\n");
+                payout = payTable.getPayout() / 100;
+                userCard.addAmount(payout / 100);
+                if (payout > 0) {
+                    output.display("Winner!!!   Amount: " + payout + "\n");
+                } else {
+                    output.display("Loser!!!\n");
+                }
+
+
             }
         } else if (this.menuOption == 2) {
-           output.display("Account Balance: " + userCard.getAmount() + "\n");
+           output.display("Account Balance: " + userCard.getFormattedAmount() + "\n");
         } else {
            this.menuOption = 3;
         }
