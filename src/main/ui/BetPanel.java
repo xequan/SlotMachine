@@ -1,5 +1,6 @@
 package main.ui;
 
+import main.business.BetType;
 import main.business.Card;
 import main.business.Spinner;
 import main.ui.util.IOFactory;
@@ -57,6 +58,17 @@ public class BetPanel {
 
     public double getBet(){
         return this.betSelection;
+    }
+    
+    public BetType addEnumerator(String inputLetter){
+		if (inputLetter.equalsIgnoreCase("n"))
+			return BetType.NICKLE;
+		else if (inputLetter.equalsIgnoreCase("d"))	
+			return BetType.DIME;
+		else if (inputLetter.equalsIgnoreCase("q"))	
+			return BetType.QUARTER;
+		else 
+			return null;
     }
 
 }
