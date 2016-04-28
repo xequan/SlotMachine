@@ -37,9 +37,7 @@ public class Spinner extends Thread implements Displayable{
 	}
 
 	public void run() {
-		int counter = 0;
-		while(true){
-			for(; counter < 20; counter++){
+			for(int counter = 0; counter < 20; counter++){
 				showingFace = (int)randomNumberGenerator.getRandom();
 				display(showingFace + "");
 				try{
@@ -50,11 +48,8 @@ public class Spinner extends Thread implements Displayable{
 
 				}
 			}
-			if(counter == 20){
-				break;
-			}
 		}
-	}
+	
 
 	public int getShowingFace() {
 		return this.showingFace;
