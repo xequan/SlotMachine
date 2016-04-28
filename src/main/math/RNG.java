@@ -8,27 +8,40 @@ package main.math;
  */
 
 
-public class RNG {
+public class RNG extends Thread{
 	int min=0;
 	int max=0;
-	
-	//Creates the random function of the spinner
-	public int getRandom(){
-		int faces=(int)(Math.random()*((max-min)+1)+min);
-		return faces;
+
+	int theRandomNumber = 0;
+
+	@Override
+	public void run(){
+		while(true){
+			theRandomNumber=(int) (Math.random()*((max-min)+1)+min);
+			try{
+				Thread.sleep(20);
+			}catch(InterruptedException e){
+
+			}
+		}
+
 	}
+	public int getRandom(){
+		return theRandomNumber;
+	}
+
 	//Sets the range of the spinner
 	public void setRange(int min,int max){
 		this.min=min;
 		this.max=max;		
 	}
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 }
 
 
