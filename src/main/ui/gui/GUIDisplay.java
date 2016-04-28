@@ -8,10 +8,13 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
@@ -33,7 +36,7 @@ public class GUIDisplay extends JFrame {
 	private Spinner spinner1;
 	private Spinner spinner2;
 	private Spinner spinner3;
-	
+
 
 	public GUIDisplay() {
 		// Set look and feel to operating system/computer
@@ -68,29 +71,25 @@ public class GUIDisplay extends JFrame {
 		spinner1.setRunTime(100);
 		spinner2.setRunTime(50);
 		spinner3.setRunTime(10);
-		
-		spinner1.start();
-		spinner2.start();
-		spinner3.start();
 
 	}
 
 	// Build the Spinner panel
 	private JPanel buildSpinnerPanel() {
 		spinnerPanel = new JPanel();
-		
+
 		spinnerOne = buildSpinner();
 		spinnerTwo = buildSpinner();
 		spinnerThree = buildSpinner();
-		
+
 		spinner1 = new Spinner();
 		spinner2 = new Spinner();
 		spinner3 = new Spinner();
-		
+
 		spinner1.setSpinnerField(spinnerOne);
 		spinner2.setSpinnerField(spinnerTwo);
 		spinner3.setSpinnerField(spinnerThree);
-		
+
 		spinnerOne = spinner1.getSpinnerField();
 		spinnerTwo = spinner2.getSpinnerField();
 		spinnerThree = spinner3.getSpinnerField();
@@ -98,29 +97,41 @@ public class GUIDisplay extends JFrame {
 		spinnerPanel.add(spinnerOne);
 		spinnerPanel.add(spinnerTwo);
 		spinnerPanel.add(spinnerThree);
-        
-        return spinnerPanel;
+
+		return spinnerPanel;
 	}
-	
+
 	// Build TextField for Spinner
 	private JTextField buildSpinner() {
 		genericSpinner = new JTextField();
 		Dimension shortField = new Dimension(20, 20);
 		genericSpinner.setPreferredSize(shortField);
-        genericSpinner.setMinimumSize(shortField);
-        
+		genericSpinner.setMinimumSize(shortField);
+
 		return genericSpinner;
 	}
-	
+
 	// Build the Bet Panel
-		private JPanel buildBetPanel() {
-			betPanel = new JPanel();
+	private JPanel buildBetPanel() {
+		betPanel = new JPanel();
 
-			// Generate Bet Button
-			betButton = new JButton("Bet");
-			betPanel.add(betButton);
+		// Generate Bet Button
+		betButton = new JButton("Bet");
+		betButton.addActionListener((ActionEvent) -> {
+            doBetButton();
+        });
+		
+		betPanel.add(betButton);
+		
+		return betPanel;
+	}
 
-			return betPanel;
-		}
+	//Bet Button Listener
+
+	private void doBetButton() {
+		spinner1.start();
+		spinner2.start();
+		spinner3.start();
+    }
+	
 }
-
