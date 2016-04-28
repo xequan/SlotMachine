@@ -23,7 +23,7 @@ public class SlotPanel {
         this.spinners = spinners;
         this.userCard = userCard;
     }
-//Comment on line 26 this comment
+
     public void displaySlotPanel() {
         String[] choices = {"1", "2", "3"};
         String menu = "Please choose one of the following options:\n";
