@@ -3,6 +3,7 @@ package main.ui;
 import main.business.Card;
 import main.business.Spinner;
 import main.math.RNG;
+import main.ui.gui.GUIDisplay;
 import main.ui.util.Displayable;
 import main.ui.util.IOFactory;
 
@@ -14,18 +15,18 @@ import main.ui.util.IOFactory;
 public class SlotMachineApp {
 
     public static void main(String[] args) {
+        //Starts the Random Number Generator
+        RNG myRNG= new RNG();
+        myRNG.start();
+        
+    	GUIDisplay display = new GUIDisplay();
+    	
         CardReader cardReader = new CardReader();
         Spinner[] spinners = new Spinner[3];
         SlotPanel slotPanel;
         MainPanel mainMenu;
         Displayable output = IOFactory.getDisplayable();
         Card userCard = new Card();
-
-        
-        //Starts the Random Number Generator
-        RNG myRNG= new RNG();
-        myRNG.start();
-        
         
         for (int i = 0; i < spinners.length; i ++){
             spinners[i] = new Spinner();

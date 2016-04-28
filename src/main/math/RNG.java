@@ -12,12 +12,13 @@ public class RNG extends Thread{
 	int min=0;
 	int max=0;
 
-	int theRandomNumber = 0;
+	static int theRandomNumber = 0;
 
 	@Override
 	public void run(){
 		while(true){
-			theRandomNumber=(int) (Math.random()*((max-min)+1)+min);
+			theRandomNumber=(int) (Math.random()*8)+1;
+//			System.out.println(theRandomNumber);
 			try{
 				Thread.sleep(20);
 			}catch(InterruptedException e){
@@ -26,7 +27,9 @@ public class RNG extends Thread{
 		}
 
 	}
-	public int getRandom(){
+	
+	public static int getRandom(){
+//		System.out.println(theRandomNumber + "hi");
 		return theRandomNumber;
 	}
 

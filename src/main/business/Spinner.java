@@ -10,7 +10,6 @@ import main.ui.util.Displayable;
  */
 public class Spinner extends Thread implements Displayable{
 	private int showingFace = 0;
-	RNG randomNumberGenerator;
 	private JTextField spinnerField;
 	private int runTime;
 
@@ -30,26 +29,22 @@ public class Spinner extends Thread implements Displayable{
 		this.spinnerField = spinnerField;
 	}
 
-	public Spinner() {
-		this.randomNumberGenerator = new RNG();
-		this.randomNumberGenerator.setRange(1, 3);
-
-	}
 
 	public void run() {
-			for(int counter = 0; counter < 20; counter++){
-				showingFace = (int)randomNumberGenerator.getRandom();
-				display(showingFace + "");
-				try{
-					Thread.sleep(runTime);
+		int counter = 0;
 
-				}
-				catch(InterruptedException e){
+		for(; counter < 200; counter++){
+			showingFace = (int)RNG.getRandom();
+			display(showingFace + "");
+			try{
+				Thread.sleep(runTime);
 
-				}
+			}
+			catch(InterruptedException e){
+
 			}
 		}
-	
+	}
 
 	public int getShowingFace() {
 		return this.showingFace;
@@ -58,6 +53,7 @@ public class Spinner extends Thread implements Displayable{
 	@Override
 	public void display(String display) {
 		spinnerField.setText(display);
+//		System.out.println(display);
 
 	}
 }
