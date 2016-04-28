@@ -36,6 +36,7 @@ public class GUIDisplay extends JFrame {
 	private Spinner spinner1;
 	private Spinner spinner2;
 	private Spinner spinner3;
+	
 
 
 	public GUIDisplay() {
@@ -89,14 +90,24 @@ public class GUIDisplay extends JFrame {
 		spinner1.setSpinnerField(spinnerOne);
 		spinner2.setSpinnerField(spinnerTwo);
 		spinner3.setSpinnerField(spinnerThree);
+		
+		
 
 		spinnerOne = spinner1.getSpinnerField();
 		spinnerTwo = spinner2.getSpinnerField();
 		spinnerThree = spinner3.getSpinnerField();
+		
+		
 
 		spinnerPanel.add(spinnerOne);
 		spinnerPanel.add(spinnerTwo);
 		spinnerPanel.add(spinnerThree);
+		
+		spinnerOne.setEditable(false);
+		
+		spinnerTwo.setEditable(false);
+		spinnerThree.setEditable(false);
+		
 
 		return spinnerPanel;
 	}
